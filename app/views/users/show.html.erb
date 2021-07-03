@@ -1,0 +1,7 @@
+<h1>username: <%= @user.username %></h1>
+
+<p>age: <%= @user.age %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_user_path(@user) %> | <%= link_to "Back", users_path %></li>
+</ul>
