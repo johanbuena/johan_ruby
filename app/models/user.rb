@@ -1,4 +1,5 @@
 class User < ApplicationRecord
-    validates(:username, {presence: true, uniqueness: true, length:{minimum: 8}})
-    validates(:age, {presence: true})
+    validates(:firstname, presence: true)
+    validates(:lastname, presence: true)
+    validates(:email, presence: true, uniqueness: true)
 end
