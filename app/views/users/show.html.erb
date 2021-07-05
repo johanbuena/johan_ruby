@@ -1,7 +1,47 @@
-<h1>username: <%= @user.username %></h1>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Anime+ Subscription</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="<%= users_path %>">Home</a>
+        <a class="nav-link" href="<%= new_user_path %>">Subscribe</a>
+        <a class="nav-link" href="<%= all_subscribers_path %>">All Subscribers</a>
+      </nav>
+    </div>
+  </header>
 
-<p>age: <%= @user.age %></p>
+  <main class = "px-3">
+    <%= form_with model: @user do |form| %>
 
-<ul>
-  <li><%= link_to "Edit", edit_user_path(@user) %> | <%= link_to "Back", users_path %></li>
-</ul>
+<p>
+    <%= form.label :firstname %><br/>
+    <%= form.text_field :firstname %><br/>
+</p>
+
+<p>
+    <%= form.label :lastname %><br/>
+    <%= form.text_field :lastname %><br/>
+</p>
+
+<p>
+    <%= form.label :email %><br/>
+    <%= form.text_field :email %><br/>
+</p>
+
+<p>
+    <% if @user.errors.any? %>
+    <ul>
+        <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+    <% end %>
+</p>
+
+<p>
+    <%= form.submit %>
+</p>
+
+<% end %>
+  </main>
+</div>
