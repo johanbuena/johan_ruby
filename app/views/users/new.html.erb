@@ -1,13 +1,31 @@
-<%= form_with model: @user do |form| %>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Anime+ Subscription</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="<%= users_path %>">Home</a>
+        <a class="nav-link" href="<%= new_user_path %>">Subscribe</a>
+        <a class="nav-link" href="<%= all_subscribers_path %>">All Subscribers</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class = "px-3">
+    <%= form_with model: @user do |form| %>
 
 <p>
-    <%= form.label :username %><br/>
-    <%= form.text_field :username %><br/>
+    <%= form.label :firstname %><br/>
+    <%= form.text_field :firstname %><br/>
 </p>
 
 <p>
-    <%= form.label :age %><br/>
-    <%= form.text_field :age %><br/>
+    <%= form.label :lastname %><br/>
+    <%= form.text_field :lastname %><br/>
+</p>
+
+<p>
+    <%= form.label :email %><br/>
+    <%= form.text_field :email %><br/>
 </p>
 
 <p>
@@ -25,3 +43,5 @@
 </p>
 
 <% end %>
+  </main>
+</div>
