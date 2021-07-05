@@ -1,0 +1,39 @@
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Anime+ Subscription</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="<%= users_path %>">Home</a>
+        <a class="nav-link" href="<%= new_user_path %>">Subscribe</a>
+        <a class="nav-link" href="<%= all_subscribers_path %>">All Subscribers</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="row">
+    <table class="table-dark">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Options</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            <% @users.each do |user| %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.firstname %></td>
+                <td><%= user.lastname %></td>
+                <td><%= user.email %></td>
+                <td><%= link_to 'Edit', edit_user_path(user) %> | <%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+  </main>
+</div>
